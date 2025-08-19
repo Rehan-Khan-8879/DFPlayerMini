@@ -1,0 +1,23 @@
+#include<SoftwareSerial.h>
+#include<DFRobotDFPlayerMini.h>
+
+SoftwareSerial mySerial(D5,D6); //RX TX
+DFRobotDFPlayerMini myDFPlayer;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  mySerial.begin(9600);
+  if(!myDFPlayer.begin(mySerial)){
+    Serial.println("DFPlayer Not Detechted");
+    while(1);
+  }
+  Serial.println("DFPlayer Is Active Now");
+  myDFPlayer.volume(30);
+  myDFPlayer.play(2);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
